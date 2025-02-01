@@ -2,20 +2,93 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  body {
+    @apply font-[family-name:var(--font-oswald)] bg-bg min-h-screen relative;
+  }
+
+  h1 {
+    @apply text-2xl font-bold text-primary;
+  }
+  h2 {
+    @apply text-xl font-extrabold text-primary;
+  }
+  p {
+    @apply text-base text-secondary;
+  }
+  small {
+    @apply text-sm font-semibold text-secondary;
+  }
+  button {
+    @apply bg-special p-2 flex items-center justify-center gap-2 rounded-md shadow-onRest hover:shadow-onHover default-animation;
+  }
+  input {
+    @apply bg-special/50 text-secondary placeholder:text-secondary/60 outline-none border-none rounded-md p-2 shadow-onRest hover:shadow-onHover focus:shadow-onHover active:shadow-onHover default-animation;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-primary;
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-[.5rem];
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-secondary;
+  }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    border: none;
+    -webkit-text-fill-color: rgb(73 54 40 / var(--tw-bg-opacity, 1));
+    transition: background-color 5000s ease-in-out 0s;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .content {
+    @apply max-w-7xl mx-auto p-5 flex-1 flex flex-col gap-5;
+  }
+  .navbar {
+    @apply sticky top-0 z-10;
+  }
+  .button {
+    @apply bg-special p-2 flex items-center justify-center gap-2 rounded-md shadow-onRest hover:shadow-onHover default-animation;
+  }
+  .button-onSuccess {
+    @apply bg-onSuccess hover:bg-onSuccess/85;
+  }
+  .button-onFailure {
+    @apply bg-onFailure hover:bg-onFailure/85;
+  }
+  .icon {
+    @apply text-primary text-xl;
+  }
+  .default-animation {
+    @apply transition-all duration-300 ease-in-out;
+  }
+  .modal-nav {
+    @apply relative flex flex-col items-center justify-center w-full h-full;
+  }
+  .backdrop {
+    @apply absolute top-0 left-0 w-full h-full bg-primary/30 backdrop-blur-[15px] z-30 flex items-center justify-center p-4 overflow-hidden;
+  }
+  .not-found-content {
+    @apply absolute inset-0 flex flex-col items-center gap-5 justify-center m-28;
+  }
+  .absolute-center {
+    @apply absolute inset-0 flex items-center justify-center;
+  }
 }
