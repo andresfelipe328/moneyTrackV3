@@ -1,11 +1,8 @@
 import Image from "next/image";
 
-import { FcGoogle } from "react-icons/fc";
 import PageContentAnim from "@/components/animations/PageContentAnim";
-import SignInForm from "@/components/forms/SignInForm";
-import Link from "next/link";
 
-const SigninPage = () => {
+const LinkToBankPage = () => {
   return (
     <div className="content min-h-screen items-center justify-center">
       <PageContentAnim style="">
@@ -20,23 +17,16 @@ const SigninPage = () => {
               className="drop-shadow-md"
               style={{ width: "75px", height: "75px" }}
             />
-            <h1>Welcome Back!</h1>
+            <h1>Link to your Bank!</h1>
           </div>
 
-          <SignInForm />
-
-          <small className="mx-auto">or sign-in using</small>
-          <FcGoogle className="mx-auto text-5xl drop-shadow-md" />
-          <div className="flex items-center justify-center w-full gap-5">
-            <p>Still don&apos;t have an account</p>
-            <Link href={"/sign-up"} className="button">
-              <small>register</small>
-            </Link>
-          </div>
+          <button className="w-1/2 mx-auto">
+            <small>link</small>
+          </button>
         </div>
       </PageContentAnim>
     </div>
   );
 };
 
-export default SigninPage;
+export default LinkToBankPage;

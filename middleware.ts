@@ -6,14 +6,14 @@ export async function middleware(req: NextRequest) {
   if (
     token &&
     (req.nextUrl.pathname.startsWith("/sign-in") ||
-      req.nextUrl.pathname.startsWith("/register"))
+      req.nextUrl.pathname.startsWith("/sign-up"))
   ) {
     return NextResponse.redirect(new URL("/", req.url));
   } else if (
     !token &&
     !(
       req.nextUrl.pathname.startsWith("/sign-in") ||
-      req.nextUrl.pathname.startsWith("/register")
+      req.nextUrl.pathname.startsWith("/sign-up")
     )
   )
     return NextResponse.redirect(new URL("/sign-in", req.url));
@@ -26,7 +26,7 @@ export const config = {
     "/bills-transactions/:path*",
     "/reports/:path*",
     "/sign-in",
-    "/register",
+    "/sign-up",
     "/link-to-bank",
   ],
 };
