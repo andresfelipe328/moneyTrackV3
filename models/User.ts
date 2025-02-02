@@ -36,27 +36,27 @@ const UserSchema = new Schema<UserDocument>(
   }
 );
 
-// const userLinkSchema = new mongoose.Schema({
-//   _id: {
-//     type: String,
-//   },
-//   is_linked: {
-//     type: Boolean,
-//     required: true,
-//   },
-//   access_token: {
-//     type: String,
-//     required: true,
-//   },
-//   item_id: {
-//     type: String,
-//     required: true,
-//   },
-// });
+const userLinkSchema = new mongoose.Schema({
+  _id: {
+    type: String,
+  },
+  is_linked: {
+    type: Boolean,
+    required: true,
+  },
+  access_token: {
+    type: String,
+    required: true,
+  },
+  item_id: {
+    type: String,
+    required: true,
+  },
+});
 
-// const UserLink =
-//   mongoose.models.usersLink || mongoose.model("usersLink", userLinkSchema);
+const UserLink =
+  mongoose.models.usersLink || mongoose.model("usersLink", userLinkSchema);
 
 const User = mongoose.models?.User || model<UserDocument>("User", UserSchema);
 
-export { User };
+export { User, UserLink };
