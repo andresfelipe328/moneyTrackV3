@@ -1,6 +1,4 @@
-import React, { Suspense } from "react";
 import { Navbar } from "@/components/global/navbar/Navbar";
-import { Provider } from "../sessionProvider";
 
 interface Props {
   children: React.ReactNode;
@@ -8,12 +6,10 @@ interface Props {
 
 const AuthenticatedLayout = ({ children }: Props) => {
   return (
-    <Suspense>
-      <Provider>
-        <Navbar />
-        {children}
-      </Provider>
-    </Suspense>
+    <>
+      <Navbar />
+      {children}
+    </>
   );
 };
 

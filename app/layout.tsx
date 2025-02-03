@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Oswald } from "next/font/google";
 import "./globals.css";
+import { Provider } from "./sessionProvider";
 
 const oslwald = Oswald({
   variable: "--font-oswald",
@@ -20,10 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${oslwald.variable} antialiased`}
-      >
-        {children}
+      <body className={`${oslwald.variable} antialiased`}>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
